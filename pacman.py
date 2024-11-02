@@ -45,6 +45,11 @@ class PacMan(pygame.sprite.Sprite):
     def update(self):
         self.rect.x += self.direction[0] * self.speed
         self.rect.y += self.direction[1] * self.speed
+        
+        if self.rect.left < 0 or self.rect.right > WIDTH:
+            self.direction[0] *= 0
+        if self.rect.top < 0 or self.rect.bottom > HEIGHT:
+            self.direction[1] *= 0
 
 class Ghost(pygame.sprite.Sprite):
     def __init__(self, color):
